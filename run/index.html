@@ -1,0 +1,660 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>中国职业好润度地图</title>
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --bg: #0a0a0f;
+  --bg2: #12121a;
+  --fg: #e0e0e8;
+  --fg2: #888894;
+  --sidebar-w: 220px;
+}
+
+body {
+  background: var(--bg);
+  color: var(--fg);
+  font-family: -apple-system, "PingFang SC", "Microsoft YaHei", "Noto Sans SC", system-ui, sans-serif;
+  overflow: hidden;
+  height: 100vh;
+}
+
+.sidebar-toggle {
+  display: none;
+  position: fixed;
+  top: 12px;
+  left: 12px;
+  z-index: 30;
+  border: 1px solid rgba(255,255,255,0.15);
+  background: rgba(18,18,26,0.92);
+  color: var(--fg);
+  border-radius: 8px;
+  padding: 8px 12px;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+#sidebar {
+  position: fixed;
+  top: 0; left: 0; bottom: 0;
+  width: var(--sidebar-w);
+  background: var(--bg2);
+  border-right: 1px solid rgba(255,255,255,0.06);
+  padding: 20px 18px;
+  z-index: 10;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255,255,255,0.08) transparent;
+  transition: transform 0.2s ease;
+}
+#sidebar::-webkit-scrollbar { width: 4px; }
+#sidebar::-webkit-scrollbar-track { background: transparent; }
+#sidebar::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.08); border-radius: 2px; }
+
+.sidebar-backdrop {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.45);
+  z-index: 9;
+}
+
+#sidebar h1 {
+  font-size: 16px;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  line-height: 1.3;
+}
+#sidebar .subtitle {
+  font-size: 11px;
+  color: var(--fg2);
+  margin-top: 4px;
+  line-height: 1.4;
+}
+#sidebar .subtitle a { color: var(--fg2); }
+
+.stat-section {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.stat-section h3 {
+  font-size: 10px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--fg2);
+}
+.stat-big {
+  font-size: 28px;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  line-height: 1;
+}
+.stat-label {
+  font-size: 11px;
+  color: var(--fg2);
+}
+
+.tier-bar { display: flex; flex-direction: column; gap: 4px; }
+.tier-row { display: flex; align-items: center; gap: 6px; font-size: 11px; }
+.tier-color { width: 10px; height: 10px; border-radius: 2px; flex-shrink: 0; }
+.tier-name { flex: 1; color: var(--fg2); }
+.tier-jobs { text-align: right; white-space: nowrap; }
+.tier-pct { text-align: right; width: 32px; color: var(--fg2); font-size: 10px; }
+
+.histogram { display: flex; align-items: flex-end; gap: 2px; height: 48px; }
+.histogram .bar { flex: 1; border-radius: 1px 1px 0 0; min-height: 1px; }
+.hist-labels { display: flex; justify-content: space-between; font-size: 9px; color: var(--fg2); margin-top: 2px; }
+
+.hbar-chart { display: flex; flex-direction: column; gap: 4px; }
+.hbar-row { display: flex; align-items: center; gap: 6px; font-size: 11px; }
+.hbar-label { width: 68px; flex-shrink: 0; color: var(--fg2); font-size: 10px; text-align: right; }
+.hbar-track { flex: 1; height: 10px; background: rgba(255,255,255,0.04); border-radius: 2px; overflow: hidden; }
+.hbar-fill { height: 100%; border-radius: 2px; }
+.hbar-val { width: 22px; flex-shrink: 0; font-size: 10px; color: var(--fg); text-align: right; }
+
+.gradient-legend { display: flex; align-items: center; gap: 6px; font-size: 10px; color: var(--fg2); }
+.gradient-legend canvas { border-radius: 2px; }
+
+canvas#canvas {
+  display: block;
+  position: fixed;
+  top: 0;
+  left: var(--sidebar-w);
+  cursor: default;
+}
+
+#tooltip {
+  position: fixed;
+  pointer-events: none;
+  background: var(--bg2);
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 8px;
+  padding: 12px 16px;
+  font-size: 13px;
+  line-height: 1.5;
+  max-width: 340px;
+  opacity: 0;
+  transition: opacity 0.12s;
+  z-index: 20;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.6);
+}
+#tooltip.visible { opacity: 1; }
+#tooltip .tt-title { font-weight: 600; font-size: 14px; margin-bottom: 6px; color: #fff; }
+#tooltip .tt-score { font-size: 12px; margin-bottom: 8px; }
+#tooltip .tt-stats { display: grid; grid-template-columns: auto auto; gap: 2px 12px; font-size: 12px; }
+#tooltip .tt-stats .label { color: var(--fg2); }
+#tooltip .tt-stats .value { color: var(--fg); text-align: right; }
+#tooltip .tt-rationale { font-size: 11px; color: var(--fg2); margin-top: 8px; line-height: 1.4; border-top: 1px solid rgba(255,255,255,0.06); padding-top: 8px; }
+
+@media (max-width: 768px) {
+  .sidebar-toggle { display: block; }
+
+  #sidebar {
+    transform: translateX(-100%);
+    width: min(82vw, 280px);
+    --sidebar-w: min(82vw, 280px);
+    z-index: 20;
+  }
+
+  body.sidebar-open #sidebar {
+    transform: translateX(0);
+  }
+
+  body.sidebar-open .sidebar-backdrop {
+    display: block;
+  }
+
+  canvas#canvas {
+    left: 0;
+  }
+}
+</style>
+</head>
+<body>
+
+<button id="sidebarToggle" class="sidebar-toggle" type="button">统计</button>
+<div id="sidebarBackdrop" class="sidebar-backdrop"></div>
+
+<div id="sidebar">
+  <div>
+    <h1>✈️中国职业好润度地图</h1>
+    <div class="subtitle">147 个职业 · 面积 = 就业人数 · 颜色 = 好润度<br>好润度：离开中国后，能否凭原有技能在海外立足<br></div>
+  </div>
+
+  <div class="stat-section">
+    <h3>总就业人数</h3>
+    <div class="stat-big" id="statTotalJobs">—</div>
+  </div>
+
+  <div class="stat-section">
+    <h3>加权平均好润度</h3>
+    <div class="stat-big" id="statAvgScore">—</div>
+    <div class="stat-label">按就业人数加权，0–10 分</div>
+  </div>
+
+  <div class="stat-section">
+    <h3>就业人数按好润度分布</h3>
+    <div class="histogram" id="histogram"></div>
+    <div class="hist-labels"><span>0</span><span>5</span><span>10</span></div>
+  </div>
+
+  <div class="stat-section">
+    <h3>分级概览</h3>
+    <div class="tier-bar" id="tierBar"></div>
+  </div>
+
+  <div class="stat-section">
+    <h3>按薪资水平</h3>
+    <div class="hbar-chart" id="payChart"></div>
+  </div>
+
+  <div class="stat-section">
+    <h3>按学历水平</h3>
+    <div class="hbar-chart" id="eduChart"></div>
+  </div>
+
+  <div class="stat-section">
+    <h3>高好润度就业人数</h3>
+    <div class="stat-big" id="statHighRun">—</div>
+    <div class="stat-label">好润度 ≥7 的职业</div>
+  </div>
+
+  <div class="gradient-legend">
+    <span>难润</span>
+    <canvas id="gradientLegend" width="80" height="8"></canvas>
+    <span>好润</span>
+  </div>
+</div>
+
+<canvas id="canvas"></canvas>
+
+<div id="tooltip">
+  <div class="tt-title"></div>
+  <div class="tt-score"></div>
+  <div class="tt-stats"></div>
+  <div class="tt-rationale"></div>
+</div>
+
+<script>
+
+// ── Color scale ──
+// 高好润度（10）= 绿色，低好润度（0）= 红/灰
+// 实现：将分数取反后传入原始的暴露度颜色函数
+
+function runColorRaw(score) {
+  if (score == null) return [128, 128, 128];
+  // 0 = 难润 → 暗红灰；10 = 好润 → 鲜绿
+  const t = Math.max(0, Math.min(10, score)) / 10;
+  let r, g, b;
+  if (t < 0.5) {
+    // 难润侧：暗红 → 橙黄
+    const s = t / 0.5;
+    r = Math.round(200 - s * 20);
+    g = Math.round(60 + s * 100);
+    b = Math.round(40 - s * 20);
+  } else {
+    // 好润侧：橙黄 → 翠绿
+    const s = (t - 0.5) / 0.5;
+    r = Math.round(180 - s * 150);
+    g = Math.round(160 + s * 70);
+    b = Math.round(20 + s * 40);
+  }
+  return [r, g, b];
+}
+
+function runColor(score) {
+  return runColorRaw(score);
+}
+
+function runColorCSS(score, alpha) {
+  const [r, g, b] = runColor(score);
+  return `rgba(${r},${g},${b},${alpha})`;
+}
+
+// ── Squarified treemap layout ──
+
+function squarify(items, x, y, w, h) {
+  if (items.length === 0) return [];
+  if (items.length === 1) return [{ ...items[0], rx: x, ry: y, rw: w, rh: h }];
+  const total = items.reduce((s, d) => s + d.value, 0);
+  if (total === 0) return [];
+  const results = [];
+  let remaining = [...items];
+  let cx = x, cy = y, cw = w, ch = h;
+  while (remaining.length > 0) {
+    const remTotal = remaining.reduce((s, d) => s + d.value, 0);
+    const vertical = cw >= ch;
+    const side = vertical ? ch : cw;
+    let row = [remaining[0]], rowSum = remaining[0].value;
+    for (let i = 1; i < remaining.length; i++) {
+      const candidate = [...row, remaining[i]];
+      const candidateSum = rowSum + remaining[i].value;
+      if (worstAspect(candidate, candidateSum, side, remTotal, vertical ? cw : ch) <
+          worstAspect(row, rowSum, side, remTotal, vertical ? cw : ch)) {
+        row = candidate; rowSum = candidateSum;
+      } else break;
+    }
+    const rowThickness = (vertical ? cw : ch) * (rowSum / remTotal);
+    let offset = 0;
+    for (const item of row) {
+      const itemLength = side * (item.value / rowSum);
+      if (vertical) results.push({ ...item, rx: cx, ry: cy + offset, rw: rowThickness, rh: itemLength });
+      else results.push({ ...item, rx: cx + offset, ry: cy, rw: itemLength, rh: rowThickness });
+      offset += itemLength;
+    }
+    if (vertical) { cx += rowThickness; cw -= rowThickness; }
+    else { cy += rowThickness; ch -= rowThickness; }
+    remaining = remaining.slice(row.length);
+  }
+  return results;
+}
+
+function worstAspect(row, rowSum, side, totalArea, availableExtent) {
+  const rowExtent = availableExtent * (rowSum / totalArea);
+  if (rowExtent === 0) return Infinity;
+  let worst = 0;
+  for (const item of row) {
+    const itemLen = side * (item.value / rowSum);
+    if (itemLen === 0) continue;
+    const aspect = Math.max(rowExtent / itemLen, itemLen / rowExtent);
+    if (aspect > worst) worst = aspect;
+  }
+  return worst;
+}
+
+function getValue(d) {
+  return d.employment || 1;
+}
+
+// ── Rendering ──
+
+let data = [];
+let rects = [];
+let hovered = null;
+let sidebarOpen = false;
+const mobileMedia = window.matchMedia("(max-width: 768px)");
+
+const canvas = document.getElementById("canvas");
+const ctx = canvas.getContext("2d");
+let dpr = window.devicePixelRatio || 1;
+const MARGIN = 12;
+const GAP = 1.5;
+
+function getSidebarWidth() {
+  if (mobileMedia.matches && !sidebarOpen) return 0;
+  return document.getElementById("sidebar").getBoundingClientRect().width;
+}
+
+function applySidebarState() {
+  document.body.classList.toggle("sidebar-open", sidebarOpen);
+}
+
+function initSidebarState() {
+  sidebarOpen = !mobileMedia.matches;
+  applySidebarState();
+}
+
+function layout() {
+  const sidebarW = getSidebarWidth();
+  const w = window.innerWidth - sidebarW;
+  const h = window.innerHeight;
+  canvas.width = w * dpr;
+  canvas.height = h * dpr;
+  canvas.style.width = w + "px";
+  canvas.style.height = h + "px";
+
+  const tx = MARGIN, ty = MARGIN;
+  const tw = w - MARGIN * 2, th = h - MARGIN * 2;
+
+  const byCategory = {};
+  for (const d of data) {
+    if (!byCategory[d.category]) byCategory[d.category] = [];
+    byCategory[d.category].push(d);
+  }
+
+  const categories = Object.keys(byCategory).map(cat => ({
+    cat,
+    items: byCategory[cat].sort((a, b) => getValue(b) - getValue(a)),
+    value: byCategory[cat].reduce((s, d) => s + getValue(d), 0),
+  })).sort((a, b) => b.value - a.value);
+
+  const catRects = squarify(categories, tx, ty, tw, th);
+  rects = [];
+  for (const cr of catRects) {
+    const items = cr.items.map(d => ({ ...d, value: getValue(d) }));
+    const innerRects = squarify(items, cr.rx + GAP, cr.ry + GAP, cr.rw - GAP * 2, cr.rh - GAP * 2);
+    for (const ir of innerRects) rects.push(ir);
+  }
+}
+
+function draw() {
+  ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+  ctx.fillStyle = "#0a0a0f";
+  ctx.fillRect(0, 0, canvas.width / dpr, canvas.height / dpr);
+
+  for (const r of rects) {
+    const isH = r === hovered;
+    const g = GAP / 2;
+    const rx = r.rx + g, ry = r.ry + g, rw = r.rw - g * 2, rh = r.rh - g * 2;
+    if (rw <= 0 || rh <= 0) continue;
+
+    ctx.fillStyle = runColorCSS(r.run_score, isH ? 0.8 : 0.5);
+    ctx.fillRect(rx, ry, rw, rh);
+
+    if (isH) { ctx.strokeStyle = "#fff"; ctx.lineWidth = 2; ctx.strokeRect(rx, ry, rw, rh); }
+
+    if (rw > 50 && rh > 18) {
+      ctx.save();
+      ctx.beginPath(); ctx.rect(rx + 4, ry + 2, rw - 8, rh - 4); ctx.clip();
+      const fontSize = Math.min(13, Math.max(9, Math.min(rw / 10, rh / 3)));
+      ctx.font = `500 ${fontSize}px -apple-system, "PingFang SC", "Microsoft YaHei", sans-serif`;
+      ctx.fillStyle = isH ? "#fff" : "rgba(255,255,255,0.85)";
+      ctx.textBaseline = "top";
+      ctx.fillText(r.name, rx + 5, ry + 4);
+
+      if (rh > 34 && rw > 60) {
+        const info = r.run_score + "/10 · " + formatWan(r.employment);
+        ctx.font = `400 ${Math.max(8, fontSize - 2)}px -apple-system, "PingFang SC", sans-serif`;
+        ctx.fillStyle = "rgba(255,255,255,0.5)";
+        ctx.fillText(info, rx + 5, ry + 4 + fontSize + 2);
+      }
+      ctx.restore();
+    }
+  }
+}
+
+function hitTest(mx, my) {
+  const sidebarW = getSidebarWidth();
+  const cx = mx - sidebarW, cy = my;
+  for (let i = rects.length - 1; i >= 0; i--) {
+    const r = rects[i];
+    if (cx >= r.rx && cx < r.rx + r.rw && cy >= r.ry && cy < r.ry + r.rh) return r;
+  }
+  return null;
+}
+
+function formatWan(n) {
+  if (n == null) return "—";
+  if (n >= 10000) return (n / 10000).toFixed(1) + "亿";
+  return n.toLocaleString("zh-CN") + "万";
+}
+
+function showTooltip(d, mx, my) {
+  const tt = document.getElementById("tooltip");
+  tt.querySelector(".tt-title").textContent = d.name;
+
+  const score = d.run_score;
+  const color = runColorCSS(score, 1);
+
+  // Score label
+  let scoreLabel = "";
+  if (score <= 2) scoreLabel = "难以出走";
+  else if (score <= 4) scoreLabel = "需重新适应";
+  else if (score <= 6) scoreLabel = "部分可迁移";
+  else if (score <= 8) scoreLabel = "较易跨国续用";
+  else scoreLabel = "技能高度通用";
+
+  tt.querySelector(".tt-score").innerHTML =
+    `<span style="color:${color};font-weight:600;">好润度：${score}/10 &nbsp;${scoreLabel}</span>` +
+    `<div style="margin-top:3px;height:4px;background:rgba(255,255,255,0.08);border-radius:2px;">` +
+    `<div style="height:100%;width:${score * 10}%;background:${color};border-radius:2px;"></div></div>`;
+
+  tt.querySelector(".tt-stats").innerHTML = `
+    <span class="label">就业人数</span><span class="value">${formatWan(d.employment)}</span>
+    <span class="label">年薪</span><span class="value">${d.salary}万元</span>
+    <span class="label">就业前景</span><span class="value">${d.growth}</span>
+    <span class="label">学历要求</span><span class="value">${d.education}</span>
+  `;
+
+  tt.querySelector(".tt-rationale").textContent = d.run_rationale || "";
+
+  const pad = 16;
+  let tx = mx + pad, ty = my - pad;
+  if (tx + 340 > window.innerWidth) tx = mx - 340 - pad;
+  if (ty < 10) ty = my + pad;
+  if (ty + 220 > window.innerHeight) ty = my - 220;
+  tt.style.left = tx + "px";
+  tt.style.top = ty + "px";
+  tt.classList.add("visible");
+}
+
+function hideTooltip() {
+  document.getElementById("tooltip").classList.remove("visible");
+}
+
+// ── Sidebar stats ──
+
+function computeStats() {
+  // Total employment
+  let totalEmp = 0;
+  for (const d of data) totalEmp += d.employment || 0;
+  document.getElementById("statTotalJobs").textContent = formatWan(totalEmp);
+
+  // Weighted avg run_score
+  let wSum = 0, wCount = 0;
+  for (const d of data) {
+    const v = d.employment || 0;
+    if (d.run_score != null) { wSum += d.run_score * v; wCount += v; }
+  }
+  const wAvg = wCount > 0 ? wSum / wCount : 0;
+  document.getElementById("statAvgScore").innerHTML =
+    `<span style="color:${runColorCSS(wAvg, 1)}">${wAvg.toFixed(1)}</span>`;
+
+  // Histogram
+  const histogram = new Array(11).fill(0);
+  for (const d of data) {
+    if (d.run_score != null) histogram[d.run_score] += d.employment || 0;
+  }
+  const maxHist = Math.max(...histogram);
+  document.getElementById("histogram").innerHTML = histogram.map((count, i) => {
+    const h = maxHist > 0 ? (count / maxHist * 100) : 0;
+    return `<div class="bar" style="height:${Math.max(2, h)}%;background:${runColorCSS(i, 0.7)}" title="${i}分: ${formatWan(count)}人"></div>`;
+  }).join("");
+
+  // Tiers
+  const tiers = [
+    { name: "难以出走 (0–2)", range: [0, 2], color: runColorCSS(1, 1) },
+    { name: "需重新适应 (3–4)", range: [3, 4], color: runColorCSS(3.5, 1) },
+    { name: "部分可迁移 (5–6)", range: [5, 6], color: runColorCSS(5.5, 1) },
+    { name: "较易跨国续用 (7–8)", range: [7, 8], color: runColorCSS(7.5, 1) },
+    { name: "技能高度通用 (9–10)", range: [9, 10], color: runColorCSS(9.5, 1) },
+  ];
+  for (const tier of tiers) {
+    tier.total = 0;
+    for (const d of data) {
+      if (d.run_score >= tier.range[0] && d.run_score <= tier.range[1]) tier.total += d.employment || 0;
+    }
+    tier.pct = totalEmp > 0 ? tier.total / totalEmp * 100 : 0;
+  }
+  document.getElementById("tierBar").innerHTML = tiers.map(t => {
+    return `<div class="tier-row">
+      <div class="tier-color" style="background:${t.color}"></div>
+      <span class="tier-name">${t.name}</span>
+      <span class="tier-jobs">${formatWan(t.total)}</span>
+      <span class="tier-pct">${t.pct.toFixed(0)}%</span>
+    </div>`;
+  }).join("");
+
+  // Pay chart — avg run_score per salary band
+  const payBands = [
+    { label: "<5万", min: 0, max: 5 },
+    { label: "5–10万", min: 5, max: 10 },
+    { label: "10–15万", min: 10, max: 15 },
+    { label: "15–25万", min: 15, max: 25 },
+    { label: ">25万", min: 25, max: Infinity },
+  ];
+  document.getElementById("payChart").innerHTML = payBands.map(band => {
+    let ws = 0, wc = 0;
+    for (const d of data) {
+      if (d.salary >= band.min && d.salary < band.max) {
+        const v = d.employment || 0;
+        ws += d.run_score * v; wc += v;
+      }
+    }
+    if (wc === 0) return "";
+    const avg = ws / wc;
+    return `<div class="hbar-row">
+      <span class="hbar-label">${band.label}</span>
+      <div class="hbar-track"><div class="hbar-fill" style="width:${avg/10*100}%;background:${runColorCSS(avg, 0.8)}"></div></div>
+      <span class="hbar-val">${avg.toFixed(1)}</span>
+    </div>`;
+  }).join("");
+
+  // Education chart — avg run_score per education level
+  const eduGroups = [
+    { label: "初中及以下", match: ["初中及以下"] },
+    { label: "高中/中专", match: ["高中中专"] },
+    { label: "大专", match: ["大专"] },
+    { label: "本科", match: ["本科"] },
+    { label: "硕士", match: ["硕士"] },
+    { label: "博士", match: ["博士"] },
+  ];
+  document.getElementById("eduChart").innerHTML = eduGroups.map(grp => {
+    let ws = 0, wc = 0;
+    for (const d of data) {
+      if (grp.match.includes(d.education)) {
+        const v = d.employment || 0;
+        ws += d.run_score * v; wc += v;
+      }
+    }
+    if (wc === 0) return "";
+    const avg = ws / wc;
+    return `<div class="hbar-row">
+      <span class="hbar-label">${grp.label}</span>
+      <div class="hbar-track"><div class="hbar-fill" style="width:${avg/10*100}%;background:${runColorCSS(avg, 0.8)}"></div></div>
+      <span class="hbar-val">${avg.toFixed(1)}</span>
+    </div>`;
+  }).join("");
+
+  // High-run total
+  let highTotal = 0;
+  for (const d of data) {
+    if (d.run_score >= 7) highTotal += d.employment || 0;
+  }
+  document.getElementById("statHighRun").textContent = formatWan(highTotal);
+}
+
+// ── Events ──
+
+canvas.addEventListener("mousemove", (e) => {
+  const hit = hitTest(e.clientX, e.clientY);
+  if (hit !== hovered) { hovered = hit; draw(); }
+  if (hovered) { showTooltip(hovered, e.clientX, e.clientY); canvas.style.cursor = "pointer"; }
+  else { hideTooltip(); canvas.style.cursor = "default"; }
+});
+canvas.addEventListener("mouseleave", () => { hovered = null; hideTooltip(); draw(); });
+
+function resize() { dpr = window.devicePixelRatio || 1; layout(); draw(); }
+
+document.getElementById("sidebarToggle").addEventListener("click", () => {
+  sidebarOpen = !sidebarOpen;
+  applySidebarState();
+  resize();
+});
+
+document.getElementById("sidebarBackdrop").addEventListener("click", () => {
+  sidebarOpen = false;
+  applySidebarState();
+  resize();
+});
+
+mobileMedia.addEventListener("change", () => {
+  initSidebarState();
+  resize();
+});
+
+// Gradient legend
+function drawGradientLegend() {
+  const c = document.getElementById("gradientLegend");
+  const gctx = c.getContext("2d");
+  for (let x = 0; x < 80; x++) {
+    gctx.fillStyle = runColorCSS((x / 79) * 10, 1);
+    gctx.fillRect(x, 0, 1, 8);
+  }
+}
+
+// ── Load ──
+
+fetch("data.json")
+  .then(r => r.json())
+  .then(d => {
+    data = d;
+    initSidebarState();
+    computeStats();
+    drawGradientLegend();
+    resize();
+  });
+
+window.addEventListener("resize", resize);
+</script>
+</body>
+</html>
