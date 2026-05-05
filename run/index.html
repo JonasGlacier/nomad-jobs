@@ -155,6 +155,30 @@ canvas#canvas {
 #tooltip .tt-stats .value { color: var(--fg); text-align: right; }
 #tooltip .tt-rationale { font-size: 11px; color: var(--fg2); margin-top: 8px; line-height: 1.4; border-top: 1px solid rgba(255,255,255,0.06); padding-top: 8px; }
 
+/* 手机端：卡片水平居中，贴在顶部或底部，避免随指针跑出可视区域 */
+#tooltip.tooltip-mobile {
+  left: 50%;
+  right: auto;
+  width: min(340px, calc(100vw - 24px));
+  max-width: min(340px, calc(100vw - 24px));
+  max-height: min(46vh, 320px);
+  overflow-x: hidden;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  pointer-events: auto;
+  touch-action: manipulation;
+  transform: translateX(-50%);
+  z-index: 35;
+}
+#tooltip.tooltip-mobile.tooltip-mobile-top {
+  top: calc(52px + env(safe-area-inset-top, 0px));
+  bottom: auto;
+}
+#tooltip.tooltip-mobile.tooltip-mobile-bottom {
+  bottom: calc(12px + env(safe-area-inset-bottom, 0px));
+  top: auto;
+}
+
 @media (max-width: 768px) {
   .sidebar-toggle { display: block; }
 
@@ -340,6 +364,7 @@ function getValue(d) {
 let data = [];
 let rects = [];
 let hovered = null;
+let lastTooltipClientY = null;
 let sidebarOpen = false;
 const mobileMedia = window.matchMedia("(max-width: 768px)");
 
@@ -477,18 +502,44 @@ function showTooltip(d, mx, my) {
 
   tt.querySelector(".tt-rationale").textContent = d.run_rationale || "";
 
-  const pad = 16;
-  let tx = mx + pad, ty = my - pad;
-  if (tx + 340 > window.innerWidth) tx = mx - 340 - pad;
-  if (ty < 10) ty = my + pad;
-  if (ty + 220 > window.innerHeight) ty = my - 220;
-  tt.style.left = tx + "px";
-  tt.style.top = ty + "px";
+  if (mobileMedia.matches) {
+    lastTooltipClientY = my;
+    tt.classList.add("tooltip-mobile");
+    const tapInLowerHalf = my >= window.innerHeight * 0.5;
+    tt.classList.toggle("tooltip-mobile-top", tapInLowerHalf);
+    tt.classList.toggle("tooltip-mobile-bottom", !tapInLowerHalf);
+    tt.style.left = "";
+    tt.style.top = "";
+    tt.style.bottom = "";
+    tt.style.right = "";
+    tt.style.transform = "";
+  } else {
+    lastTooltipClientY = null;
+    tt.classList.remove("tooltip-mobile", "tooltip-mobile-top", "tooltip-mobile-bottom");
+    const pad = 16;
+    let tx = mx + pad, ty = my - pad;
+    if (tx + 340 > window.innerWidth) tx = mx - 340 - pad;
+    if (ty < 10) ty = my + pad;
+    if (ty + 220 > window.innerHeight) ty = my - 220;
+    tt.style.left = tx + "px";
+    tt.style.top = ty + "px";
+    tt.style.bottom = "";
+    tt.style.right = "";
+    tt.style.transform = "";
+  }
   tt.classList.add("visible");
 }
 
 function hideTooltip() {
-  document.getElementById("tooltip").classList.remove("visible");
+  const tt = document.getElementById("tooltip");
+  tt.classList.remove("visible");
+  lastTooltipClientY = null;
+  tt.classList.remove("tooltip-mobile", "tooltip-mobile-top", "tooltip-mobile-bottom");
+  tt.style.left = "";
+  tt.style.top = "";
+  tt.style.bottom = "";
+  tt.style.right = "";
+  tt.style.transform = "";
 }
 
 // ── Sidebar stats ──
@@ -606,12 +657,27 @@ function computeStats() {
 // ── Events ──
 
 canvas.addEventListener("mousemove", (e) => {
+  if (mobileMedia.matches) return;
   const hit = hitTest(e.clientX, e.clientY);
   if (hit !== hovered) { hovered = hit; draw(); }
   if (hovered) { showTooltip(hovered, e.clientX, e.clientY); canvas.style.cursor = "pointer"; }
   else { hideTooltip(); canvas.style.cursor = "default"; }
 });
-canvas.addEventListener("mouseleave", () => { hovered = null; hideTooltip(); draw(); });
+canvas.addEventListener("mouseleave", () => {
+  if (mobileMedia.matches) return;
+  hovered = null; hideTooltip(); draw();
+});
+
+canvas.addEventListener("pointerdown", (e) => {
+  if (!mobileMedia.matches) return;
+  const hit = hitTest(e.clientX, e.clientY);
+  if (hit !== hovered) { hovered = hit; draw(); }
+  if (hovered) {
+    showTooltip(hovered, e.clientX, e.clientY);
+  } else {
+    hideTooltip();
+  }
+});
 
 function resize() { dpr = window.devicePixelRatio || 1; layout(); draw(); }
 
@@ -629,8 +695,20 @@ document.getElementById("sidebarBackdrop").addEventListener("click", () => {
 
 mobileMedia.addEventListener("change", () => {
   initSidebarState();
+  hideTooltip();
+  hovered = null;
+  draw();
   resize();
 });
+
+function onWindowResize() {
+  resize();
+  if (mobileMedia.matches && document.getElementById("tooltip").classList.contains("visible") && hovered && lastTooltipClientY != null) {
+    showTooltip(hovered, 0, lastTooltipClientY);
+  }
+}
+
+window.addEventListener("resize", onWindowResize);
 
 // Gradient legend
 function drawGradientLegend() {
@@ -654,7 +732,6 @@ fetch("data.json")
     resize();
   });
 
-window.addEventListener("resize", resize);
 </script>
 </body>
 </html>
