@@ -612,7 +612,7 @@
     "salary": 8.2,
     "education": "高中中专",
     "growth": "-4%",
-    "run_score": 8,
+    "run_score": 7,
     "run_rationale": "焊接是全球制造业最稀缺的技能之一，AWS/EN国际认证存在，欧美工厂对熟练焊工需求持续旺盛。"
   },
   {
@@ -722,7 +722,7 @@
     "salary": 6.3,
     "education": "初中及以下",
     "growth": "-6%",
-    "run_score": 4,
+    "run_score": 3,
     "run_rationale": "体力劳动技能可迁移，移民国建筑业通常人手短缺，但语言障碍和本地建筑规范学习是门槛。"
   },
   {
