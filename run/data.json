@@ -8,7 +8,7 @@
     "education": "本科",
     "growth": "+8%",
     "run_score": 10,
-    "run_rationale": "代码无国界，远程工作普遍，全球科技公司对编程人才需求旺盛，是「数字游民」的首选职业。"
+    "run_rationale": "润学鼻祖，无需考证，薪资上限极高。代码无国界，面试流程标准化。唯一隐忧是近年裁员潮导致竞争加剧。"
   },
   {
     "name": "数据分析师",
@@ -29,8 +29,8 @@
     "salary": 19.6,
     "education": "本科",
     "growth": "+6%",
-    "run_score": 7,
-    "run_rationale": "数据库技术（Oracle/MySQL/PostgreSQL）标准化程度高，技能可直接在境外IT部门复用。"
+    "run_score": 8,
+    "run_rationale": "数据库技术标准化程度高，大型IT企业必备，虽然岗位量不如开发，但极其稳定。"
   },
   {
     "name": "网络工程师",
@@ -40,7 +40,7 @@
     "salary": 17.8,
     "education": "本科",
     "growth": "+7%",
-    "run_score": 7,
+    "run_score": 9,
     "run_rationale": "网络协议和思科/华为设备技能国际通用，CCNA/CCNP认证全球认可，跨国就业无障碍。"
   },
   {
@@ -51,7 +51,7 @@
     "salary": 15.9,
     "education": "大专",
     "growth": "+5%",
-    "run_score": 7,
+    "run_score": 9,
     "run_rationale": "Linux和AWS/Azure云平台技能全球通用，DevOps是国际主流，技能直接可用。"
   },
   {
@@ -84,7 +84,7 @@
     "salary": 16.8,
     "education": "本科",
     "growth": "+6%",
-    "run_score": 7,
+    "run_score": 8,
     "run_rationale": "测试方法论和自动化工具链（Selenium/JUnit）全球一致，技能可直接在境外软件公司复用。"
   },
   {
@@ -117,7 +117,7 @@
     "salary": 21.5,
     "education": "本科",
     "growth": "+11%",
-    "run_score": 7,
+    "run_score": 10,
     "run_rationale": "信息安全知识国际通用，CISSP/CEH认证全球认可，全球网络安全人才缺口庞大。"
   },
   {
@@ -161,8 +161,8 @@
     "salary": 20.6,
     "education": "本科",
     "growth": "+10%",
-    "run_score": 9,
-    "run_rationale": "硬件底层知识全球通用，半导体和汽车电子行业国际化程度高，中国工程师全球竞争力强。"
+    "run_score": 10,
+    "run_rationale": "相比纯软件，更偏硬件底层，替代率低，工业大国（德、美、日）极度渴求。"
   },
   {
     "name": "银行柜员",
@@ -183,8 +183,8 @@
     "salary": 14.6,
     "education": "本科",
     "growth": "+0%",
-    "run_score": 4,
-    "run_rationale": "中国会计准则与IFRS存在差异，税法、审计规则、会计准则、证照都很本地化。可以转财务分析、AP/AR、内部财务岗，但要直接续做“本地注册会计”不容易。"
+    "run_score": 3,
+    "run_rationale": "中国会计准则与IFRS存在差异，税法、审计规则、会计准则、证照都很本地化。必须重刷当地证书（CPA/ACCA），且初级工作极其容易被本地人和AI替代。"
   },
   {
     "name": "审计师",
@@ -194,8 +194,8 @@
     "salary": 17.2,
     "education": "本科",
     "growth": "+2%",
-    "run_score": 4,
-    "run_rationale": "国际审计准则（ISA）存在全球通用版本，ACCA认证国际化程度高，但本地税法和法规仍需重学。"
+    "run_score": 6,
+    "run_rationale": "四大的背景全球认可，国际审计准则（ISA）存在全球通用版本，ACCA认证国际化程度高，但本地税法和法规仍需重学。"
   },
   {
     "name": "金融分析师",
@@ -205,8 +205,8 @@
     "salary": 24.1,
     "education": "硕士",
     "growth": "+4%",
-    "run_score": 6,
-    "run_rationale": "CFA认证全球认可，金融分析逻辑通用，海外华人金融社区活跃，但本地市场知识需要时间积累。"
+    "run_score": 8,
+    "run_rationale": "如果你是做量化分析或风险建模的，你的语言是 Python/R 和数学，这在华尔街、伦敦或新加坡是通用的。"
   },
   {
     "name": "证券经纪人",
@@ -216,8 +216,8 @@
     "salary": 18.9,
     "education": "本科",
     "growth": "-3%",
-    "run_score": 2,
-    "run_rationale": "证券从业资格完全本地化，离开中国后几乎无法直接续用，需重考当地牌照且客户关系归零。"
+    "run_score": 1,
+    "run_rationale": "需要本地高净值人脉。一个初来乍到的外国人无法获得当地核心客户的信任。"
   },
   {
     "name": "保险代理人",
@@ -227,7 +227,7 @@
     "salary": 9.5,
     "education": "高中中专",
     "growth": "-4%",
-    "run_score": 2,
+    "run_score": 1,
     "run_rationale": "保险执照本地化，产品和条款各国完全不同，客户关系归零，人际网络无法带走。"
   },
   {
@@ -238,8 +238,8 @@
     "salary": 43.0,
     "education": "硕士",
     "growth": "+4%",
-    "run_score": 5,
-    "run_rationale": "投资逻辑和量化方法部分通用，CFA/FRM认证国际化，但当地执照和市场知识需重建。"
+    "run_score": 3,
+    "run_rationale": "除少数顶级基金外，基金经理很看重对本地市场的“嗅觉”。中国市场的经验在海外市场往往完全不适用。"
   },
   {
     "name": "风控专员",
@@ -249,8 +249,8 @@
     "salary": 18.9,
     "education": "本科",
     "growth": "+5%",
-    "run_score": 6,
-    "run_rationale": "量化风控方法论国际通用，FRM认证全球认可，金融机构间风险管理理念相近，迁移性较好。"
+    "run_score": 8,
+    "run_rationale": "量化风控方法论国际通用，FRM认证全球认可，金融机构间风险管理理念相近，迁移性较好。技术流的风控在海外大行非常受欢迎。"
   },
   {
     "name": "税务师",
@@ -260,8 +260,8 @@
     "salary": 16.3,
     "education": "本科",
     "growth": "+2%",
-    "run_score": 0,
-    "run_rationale": "税法完全本地化，各国税制几乎毫无共性，移民后积累的税务知识几乎归零，需从头学起。"
+    "run_score": 1,
+    "run_rationale": "纯国内税务，出国后等于废人。1分只留给懂国际税法的税务师。"
   },
   {
     "name": "精算师",
@@ -271,8 +271,8 @@
     "salary": 34.4,
     "education": "硕士",
     "growth": "+4%",
-    "run_score": 8,
-    "run_rationale": "SOA/CAS精算资格考试体系国际认可，精算数学知识全球通用，是金融领域迁移性最强的职业。"
+    "run_score": 9,
+    "run_rationale": "SOA/CAS精算资格考试体系国际认可，金融业的“神职”。人才极度稀缺。"
   },
   {
     "name": "信贷审批员",
@@ -282,8 +282,8 @@
     "salary": 13.8,
     "education": "本科",
     "growth": "-4%",
-    "run_score": 3,
-    "run_rationale": "信用评估方法有一定通用性，但本地信用体系（征信报告/担保规则）差异大，转换成本较高。"
+    "run_score": 5,
+    "run_rationale": "信用评估方法有一定通用性，极度依赖对当地行业和企业信用环境的理解，落地后初期的“准确率”会受影响。"
   },
   {
     "name": "投资顾问",
@@ -293,8 +293,8 @@
     "salary": 20.6,
     "education": "本科",
     "growth": "+2%",
-    "run_score": 4,
-    "run_rationale": "需当地证券牌照，客户信任关系归零，积累的本地资产配置经验在海外市场适用性有限。"
+    "run_score": 2,
+    "run_rationale": "核心是“卖”。不仅要英语极其流利，还要有本地客户资源。新移民很难在短时间内建立起让本地富人信任的人脉。"
   },
   {
     "name": "出纳员",
@@ -359,7 +359,7 @@
     "salary": 7.7,
     "education": "本科",
     "growth": "+4%",
-    "run_score": 3,
+    "run_score": 2,
     "run_rationale": "特教干预方法部分通用，但语言障碍与文化差异极大限制了与学生和家长的沟通。"
   },
   {
@@ -370,7 +370,7 @@
     "salary": 9.7,
     "education": "本科",
     "growth": "+2%",
-    "run_score": 3,
+    "run_score": 2,
     "run_rationale": "培训内容大多依赖中文，技术类培训有一定迁移价值，但整体受语言和文化背景制约较大。"
   },
   {
@@ -381,7 +381,7 @@
     "salary": 8.7,
     "education": "本科",
     "growth": "+0%",
-    "run_score": 2,
+    "run_score": 1,
     "run_rationale": "对中国教育体系（高考/双减）的专业知识出国后价值极为有限，需要完全重建知识体系。"
   },
   {
@@ -425,8 +425,8 @@
     "salary": 7.7,
     "education": "本科",
     "growth": "+3%",
-    "run_score": 7,
-    "run_rationale": "体育训练方法论通用，国际体育认证（足球UEFA/AFC执照、游泳教练认证）可全球迁移。"
+    "run_score": 5,
+    "run_rationale": "体育训练方法论通用，但极度依赖本地人脉、社交和语言，不易拿工签。"
   },
   {
     "name": "临床医生",
@@ -437,7 +437,7 @@
     "education": "本科",
     "growth": "+6%",
     "run_score": 3,
-    "run_rationale": "大多数国家（美/加/澳）要求重新参加执照考试（如USMLE），需数年时间，代价极高。"
+    "run_rationale": "需要参加极其严格的认证考试（如美国的USMLE），住院医培训几乎要推倒重来，耗时长达5-10年，代价极高。"
   },
   {
     "name": "护士",
@@ -447,8 +447,8 @@
     "salary": 8.1,
     "education": "大专",
     "growth": "+7%",
-    "run_score": 6,
-    "run_rationale": "全球护士严重短缺，但语言要求高，执照考试/学历认证/临床适配都很重要。加拿大/澳大利亚/英国有专项移民通道，语言测试（IELTS/OET）后可转换执照，通过认证后前景不错。"
+    "run_score": 9,
+    "run_rationale": "需要考当地执照（NCLEX、OSCE、ANMAC等），但相比医生容易很多。全球护士严重短缺，很多国家有专门针对护士的快速通道。只要过了语言关并考取当地注册护士，基本直接发永居。"
   },
   {
     "name": "药剂师",
@@ -480,8 +480,8 @@
     "salary": 16.9,
     "education": "本科",
     "growth": "+7%",
-    "run_score": 1,
-    "run_rationale": "高壁垒职业，地方保护主义特别严重。需要重读学费昂贵、名额稀少的牙医学校。"
+    "run_score": 2,
+    "run_rationale": "高壁垒职业，地方保护主义特别严重。需要重读本地的牙医学校，成本惊人。"
   },
   {
     "name": "医学检验师",
@@ -491,7 +491,7 @@
     "salary": 9.6,
     "education": "本科",
     "growth": "+5%",
-    "run_score": 5,
+    "run_score": 7,
     "run_rationale": "实验室操作和检验技能较为通用，ASCP等国际认证体系存在，可迁移性中等。"
   },
   {
@@ -503,7 +503,7 @@
     "education": "本科",
     "growth": "+9%",
     "run_score": 7,
-    "run_rationale": "全球老龄化带来物理治疗需求激增，技能具有国际共性，执照转换路径相对可行。"
+    "run_rationale": "全球老龄化带来物理治疗需求旺盛，但沟通要求比蓝领高。"
   },
   {
     "name": "心理咨询师",
@@ -524,7 +524,7 @@
     "salary": 9.6,
     "education": "本科",
     "growth": "+6%",
-    "run_score": 5,
+    "run_score": 7,
     "run_rationale": "CT/MRI操作技能较为通用，设备品牌国际一致，但执照需在当地重新认证。"
   },
   {
@@ -535,7 +535,7 @@
     "salary": 10.1,
     "education": "本科",
     "growth": "+7%",
-    "run_score": 4,
+    "run_score": 3,
     "run_rationale": "流行病学方法论国际通用，但政策应用需深入了解当地公共卫生体系，学位认可度也存在差异。"
   },
   {
@@ -546,8 +546,8 @@
     "salary": 5.1,
     "education": "初中及以下",
     "growth": "+9%",
-    "run_score": 7,
-    "run_rationale": "全球老龄化催生护理需求，基础照护技能可迁移，语言要求相对低，是低学历人群可行的移民路径。"
+    "run_score": 8,
+    "run_rationale": "全球老龄化催生护理需求，基础照护技能可迁移。门槛极低，虽然辛苦，但这是低学历人群可行的移民路径。"
   },
   {
     "name": "营养师",
@@ -557,7 +557,7 @@
     "salary": 9.6,
     "education": "本科",
     "growth": "+7%",
-    "run_score": 5,
+    "run_score": 4,
     "run_rationale": "营养学知识有国际共识，但饮食文化差异大，认证体系不同，需要一定适应期。"
   },
   {
@@ -590,7 +590,7 @@
     "salary": 11.4,
     "education": "本科",
     "growth": "+1%",
-    "run_score": 7,
+    "run_score": 8,
     "run_rationale": "电气工程知识国际通用，IEC标准广泛应用，如果是建筑电气、电力配电、强电工程，更依赖本地规范、认证和标准。"
   },
   {
@@ -601,7 +601,7 @@
     "salary": 7.3,
     "education": "大专",
     "growth": "-3%",
-    "run_score": 3,
+    "run_score": 2,
     "run_rationale": "ISO质量管理体系国际化，QC工具（SPC/FMEA）全球通用，但技能含量相对较低。"
   },
   {
@@ -612,8 +612,8 @@
     "salary": 8.2,
     "education": "高中中专",
     "growth": "-4%",
-    "run_score": 8,
-    "run_rationale": "焊接是全球制造业最稀缺的技能之一，AWS/EN国际认证存在，欧美工厂对熟练焊工需求持续旺盛。"
+    "run_score": 10,
+    "run_rationale": "焊接是全球制造业最稀缺的技能之一，特种焊工（如水下）极其吃香，签证绿灯。由于环境艰苦，本地人厌恶，替代率极低。"
   },
   {
     "name": "数控机床操作工",
@@ -623,7 +623,7 @@
     "salary": 7.8,
     "education": "高中中专",
     "growth": "-3%",
-    "run_score": 8,
+    "run_score": 7,
     "run_rationale": "属于很硬的制造业技能，很多国家缺熟练技工。但需要熟悉不同设备系统、工厂流程和质量标准。"
   },
   {
@@ -634,7 +634,7 @@
     "salary": 6.0,
     "education": "初中及以下",
     "growth": "-5%",
-    "run_score": 3,
+    "run_score": 2,
     "run_rationale": "操作技能可迁移，但低技能竞争激烈，移民国薪资未必更高，发展路径有限。"
   },
   {
@@ -656,8 +656,8 @@
     "salary": 7.8,
     "education": "大专",
     "growth": "-1%",
-    "run_score": 6,
-    "run_rationale": "化工工艺知识有国际共性，安全规范（OSHA/REACH）有全球版本，石化行业国际化程度高。"
+    "run_score": 5,
+    "run_rationale": "化工工艺知识有国际共性，如果当地有产业聚落（如德国巴斯夫等），则得分很高，否则很难找。"
   },
   {
     "name": "纺织工",
@@ -667,7 +667,7 @@
     "salary": 5.5,
     "education": "初中及以下",
     "growth": "-6%",
-    "run_score": 3,
+    "run_score": 2,
     "run_rationale": "技能含量低，移民后通常面临更激烈的本地竞争，发展路径极为有限。"
   },
   {
@@ -678,8 +678,8 @@
     "salary": 5.5,
     "education": "初中及以下",
     "growth": "-3%",
-    "run_score": 3,
-    "run_rationale": "基础操作技能可迁移，但薪资竞争力和发展空间有限，语言障碍也是主要制约。"
+    "run_score": 2,
+    "run_rationale": "属于基础劳动力，容易获得基础工签，但薪资竞争力和发展空间有限。"
   },
   {
     "name": "电子装配工",
@@ -689,8 +689,8 @@
     "salary": 6.0,
     "education": "高中中专",
     "growth": "-4%",
-    "run_score": 3,
-    "run_rationale": "电子装配技能可迁移，但发展空间有限，高技能电子制造（如半导体）的竞争优势更大。"
+    "run_score": 2,
+    "run_rationale": "属于基础劳动力，发展空间有限，高技能电子制造（如半导体）的竞争优势更大。"
   },
   {
     "name": "生产主管",
@@ -700,7 +700,7 @@
     "salary": 10.5,
     "education": "大专",
     "growth": "-1%",
-    "run_score": 3,
+    "run_score": 2,
     "run_rationale": "精益生产/6σ等管理方法国际通用，但团队管理需适应当地职场文化，语言沟通是关键瓶颈。"
   },
   {
@@ -711,7 +711,7 @@
     "salary": 7.8,
     "education": "高中中专",
     "growth": "-4%",
-    "run_score": 6,
+    "run_score": 5,
     "run_rationale": "精密模具是稀缺手工技能，全球先进制造业（德国/日本/美国）对高水平模具工有持续需求。"
   },
   {
@@ -723,7 +723,7 @@
     "education": "初中及以下",
     "growth": "-6%",
     "run_score": 7,
-    "run_rationale": "体力劳动技能可迁移，移民国建筑业通常人手短缺。如果是实际干活型、经验扎实，出国后继续在建筑业立足并不算太难。"
+    "run_rationale": "体力劳动技能可迁移，移民国建筑业通常人手短缺。主要挑战在于签证申请，通常需要雇主担保。"
   },
   {
     "name": "钢筋工",
@@ -733,8 +733,8 @@
     "salary": 6.7,
     "education": "初中及以下",
     "growth": "-6%",
-    "run_score": 6,
-    "run_rationale": "钢筋绑扎技能全球通用，澳大利亚/加拿大建筑业对熟练工人有持续需求，但需取得当地认证。"
+    "run_score": 7,
+    "run_rationale": "钢筋绑扎技能全球通用，准入门槛低，澳大利亚/加拿大建筑业对熟练工人有持续需求，但需取得当地认证。"
   },
   {
     "name": "水泥工/泥工",
@@ -756,7 +756,7 @@
     "education": "本科",
     "growth": "-4%",
     "run_score": 6,
-    "run_rationale": "设计软件、空间理解、制图能力、项目协调经验可迁移。但是注册建筑师制度很本地化。"
+    "run_rationale": "依赖本地建筑法规标准。中国设计师出国通常需从基础绘图员做起。"
   },
   {
     "name": "土木工程师",
@@ -766,8 +766,8 @@
     "salary": 10.2,
     "education": "本科",
     "growth": "-3%",
-    "run_score": 7,
-    "run_rationale": "工程力学知识全球通用，PE/CEng执照转换路径在美国/英国/澳大利亚存在，国际基建需求旺盛。"
+    "run_score": 6,
+    "run_rationale": "工程力学知识全球通用，PE/CEng执照转换路径在美国/英国/澳大利亚存在，但强依赖本地法规和项目人脉，"
   },
   {
     "name": "装修工",
@@ -799,7 +799,7 @@
     "salary": 7.5,
     "education": "高中中专",
     "growth": "-5%",
-    "run_score": 6,
+    "run_score": 7,
     "run_rationale": "起重操作技能可迁移，全球建筑和港口行业均有需求，国际操作资格认证路径存在。"
   },
   {
@@ -821,8 +821,8 @@
     "salary": 6.7,
     "education": "初中及以下",
     "growth": "-4%",
-    "run_score": 6,
-    "run_rationale": "技能很值钱，但给排水、燃气、暖通涉及安全，需要本地认证、学徒体系或牌照。"
+    "run_score": 8,
+    "run_rationale": "技能很值钱，但给排水、燃气、暖通涉及安全，需要考牌。一旦拿到执照，不仅能立足，甚至能进入中产阶级。"
   },
   {
     "name": "室内设计师",
@@ -843,8 +843,8 @@
     "salary": 2.9,
     "education": "初中及以下",
     "growth": "-6%",
-    "run_score": 2,
-    "run_rationale": "高度依赖土地资源。发达国家多为机械化农场，传统农夫难以直接平移，多只能做季节性采摘工作。"
+    "run_score": 5,
+    "run_rationale": "中国农村那些会修农机、会开收割机、懂大棚控温、懂生猪/蛋鸡防疫的“土专家”，其技能底层逻辑与国外农场完全一致。发达国家本地年轻人极度厌恶农业，竞争小。中国农民对工时的忍耐力，在西方劳动力市场是极具竞争力的“软实力”。最大阻碍是语言。"
   },
   {
     "name": "畜牧养殖户",
@@ -854,8 +854,8 @@
     "salary": 3.5,
     "education": "初中及以下",
     "growth": "-5%",
-    "run_score": 2,
-    "run_rationale": "养殖技能本地化程度高，动物品种和饲养规范各国差异大，移民后几乎需要完全重新学习。"
+    "run_score": 8,
+    "run_rationale": "在新西兰和澳洲，这是撑起国家GDP的职业，急需熟练工。本地人嫌弃竞争小。"
   },
   {
     "name": "渔民",
@@ -865,8 +865,8 @@
     "salary": 4.1,
     "education": "初中及以下",
     "growth": "-7%",
-    "run_score": 3,
-    "run_rationale": "北欧/东南亚渔业国有需求，但近海和淡水渔民难以出走，与远洋捕捞船员不一样。"
+    "run_score": 6,
+    "run_rationale": "北欧/东南亚渔业国有需求，职业渔民收入惊人，但入行门槛高，语言不行进不了船队。"
   },
   {
     "name": "林业工人",
@@ -876,8 +876,8 @@
     "salary": 3.2,
     "education": "初中及以下",
     "growth": "-5%",
-    "run_score": 4,
-    "run_rationale": "体力劳动，本地树种和生态系统知识需完全重建，收入前景有限。"
+    "run_score": 7,
+    "run_rationale": "类似于农机手，在加拿大、新西兰等资源大国是支柱产业，收入高但环境艰苦。"
   },
   {
     "name": "农业技术员",
@@ -887,8 +887,8 @@
     "salary": 7.0,
     "education": "大专",
     "growth": "-1%",
-    "run_score": 5,
-    "run_rationale": "农业科学知识有国际共识，精准农业和植保技术全球同步，持有专业学历者可在国际农业机构发展。"
+    "run_score": 8,
+    "run_rationale": "蓝领中的白领。懂育种、土壤分析或现代灌溉。这是各国农业部最欢迎的人才，签证优先级极高。"
   },
   {
     "name": "园艺师",
@@ -898,8 +898,8 @@
     "salary": 5.8,
     "education": "大专",
     "growth": "-2%",
-    "run_score": 6,
-    "run_rationale": "园艺技能国际通用，英国RHS等认证可迁移，华人景观公司在海外有市场。"
+    "run_score": 7,
+    "run_rationale": "园艺技能国际通用，高档社区标配。虽然初期辛苦，但很容易自己买辆皮卡单干，收入高。"
   },
   {
     "name": "农机操作员",
@@ -909,8 +909,8 @@
     "salary": 4.4,
     "education": "初中及以下",
     "growth": "-1%",
-    "run_score": 4,
-    "run_rationale": "大型农机操作技能可迁移，澳大利亚/加拿大农业大省对农机操作员有需求，但本地机型需适应。"
+    "run_score": 7,
+    "run_rationale": "黑马职业。澳大利亚/加拿大农业大省对农机操作员有需求。常年在偏远的移民加分区，且属于技术工种，不容易被替代，签证优先级高。"
   },
   {
     "name": "人力资源专员",
@@ -942,7 +942,7 @@
     "salary": 16.5,
     "education": "硕士",
     "growth": "+6%",
-    "run_score": 5,
+    "run_score": 4,
     "run_rationale": "麦肯锡/BCG通用框架可迁移，MBA学历国际认可，但本地行业洞察和客户信任网络需重建。"
   },
   {
@@ -986,7 +986,7 @@
     "salary": 9.2,
     "education": "本科",
     "growth": "+4%",
-    "run_score": 3,
+    "run_score": 1,
     "run_rationale": "媒体关系和公众认知完全本地化，积累的中国媒体人脉在海外毫无价值。"
   },
   {
@@ -997,8 +997,8 @@
     "salary": 9.6,
     "education": "本科",
     "growth": "+3%",
-    "run_score": 4,
-    "run_rationale": "创意思维有一定通用性，但媒体投放平台和消费者洞察几乎需要完全重建。"
+    "run_score": 2,
+    "run_rationale": "文化属性极强，对语言和本地思维要求极高，第一代移民很难。"
   },
   {
     "name": "商务代表/销售",
@@ -1008,7 +1008,7 @@
     "salary": 7.8,
     "education": "大专",
     "growth": "+2%",
-    "run_score": 3,
+    "run_score": 1,
     "run_rationale": "销售依赖人际关系网络，移民后客户资源归零，需要重建信任体系，语言也是核心障碍。"
   },
   {
@@ -1030,7 +1030,7 @@
     "salary": 10.1,
     "education": "本科",
     "growth": "+5%",
-    "run_score": 2,
+    "run_score": 0,
     "run_rationale": "中国法律知识在境外几乎无用，需要重新学习当地法律，几乎是从零开始的职业。"
   },
   {
@@ -1041,7 +1041,7 @@
     "salary": 10.6,
     "education": "本科",
     "growth": "+4%",
-    "run_score": 3,
+    "run_score": 1,
     "run_rationale": "培训内容语言依赖性强，文化背景影响大，移民后受众几乎局限于华人社区。"
   },
   {
@@ -1063,7 +1063,7 @@
     "salary": 7.5,
     "education": "大专",
     "growth": "+4%",
-    "run_score": 1,
+    "run_score": 0,
     "run_rationale": "中国基层社会治理结构（居委会/街道办）独特，海外无对应职位，技能几乎无法迁移。"
   },
   {
@@ -1140,8 +1140,8 @@
     "salary": 7.8,
     "education": "高中中专",
     "growth": "+3%",
-    "run_score": 5,
-    "run_rationale": "Uber/Lyft模式全球普及，驾驶技能通用，考取当地驾照即可入职，是移民初期最易上手的职业。"
+    "run_score": 4,
+    "run_rationale": "Uber/Lyft模式全球普及，驾驶技能通用，考取当地驾照即可入职，只适合已经拿到绿卡的人做。"
   },
   {
     "name": "货车司机",
@@ -1151,8 +1151,8 @@
     "salary": 9.1,
     "education": "初中及以下",
     "growth": "-1%",
-    "run_score": 5,
-    "run_rationale": "全球物流业均有需求，考取当地CDL/大型车牌照后可就业，薪资往往不低。"
+    "run_score": 7,
+    "run_rationale": "全球物流业均有需求，北美和欧洲缺口极大，准入门槛低，拿工签效率高。"
   },
   {
     "name": "公交车司机",
@@ -1173,8 +1173,8 @@
     "salary": 7.7,
     "education": "初中及以下",
     "growth": "+3%",
-    "run_score": 3,
-    "run_rationale": "操作门槛低，容易做临时谋生，更多依赖当地驾照、车辆、平台准入和身份。"
+    "run_score": 2,
+    "run_rationale": "容易做临时谋生，更多依赖当地驾照、车辆、平台准入和身份。"
   },
   {
     "name": "外卖骑手",
@@ -1184,8 +1184,8 @@
     "salary": 8.2,
     "education": "初中及以下",
     "growth": "+4%",
-    "run_score": 4,
-    "run_rationale": "Uber Eats/DoorDash/Deliveroo全球普及，移民初期可快速入职，但长期发展路径有限。"
+    "run_score": 2,
+    "run_rationale": "零工，没有工签、没有医保、没有职业晋升，纯消耗体力。"
   },
   {
     "name": "飞行员",
@@ -1217,7 +1217,7 @@
     "salary": 6.6,
     "education": "初中及以下",
     "growth": "+1%",
-    "run_score": 4,
+    "run_score": 3,
     "run_rationale": "基础仓储技能可迁移，亚马逊等跨国物流公司全球招人，但发展路径较为有限。"
   },
   {
@@ -1240,7 +1240,7 @@
     "education": "本科",
     "growth": "+0%",
     "run_score": 2,
-    "run_rationale": "中文媒体经验仅在少数海外华人媒体有限度适用，整体职业迁移价值极低。"
+    "run_rationale": "中文媒体经验仅在少数海外华人媒体有限度适用，母语门槛是天堑，且缺乏对应的特定工签支持。"
   },
   {
     "name": "摄影师/摄像师",
@@ -1262,7 +1262,7 @@
     "education": "大专",
     "growth": "+1%",
     "run_score": 7,
-    "run_rationale": "Adobe套件技能全球通用，视觉表达能力跨越语言，作品集可直接向全球客户展示。"
+    "run_rationale": "技能全球通用，视觉表达能力跨越语言，只要审美在线、工具熟练，不需要太多语言沟通即可在自由市场立足。"
   },
   {
     "name": "视频剪辑师",
@@ -1295,7 +1295,7 @@
     "education": "本科",
     "growth": "+1%",
     "run_score": 2,
-    "run_rationale": "中文创作在境外市场极为有限，需彻底转换语言才能延续职业，几乎是职业重启。"
+    "run_rationale": "高度依赖中文的文化环境。如果面向海外读者创作，几乎是职业重启。"
   },
   {
     "name": "图书馆员",
@@ -1349,8 +1349,8 @@
     "salary": 7.1,
     "education": "高中中专",
     "growth": "-1%",
-    "run_score": 3,
-    "run_rationale": "语言门槛限制了发展空间，移民初期可在华人超市/商店入职，但长期发展路径有限。"
+    "run_score": 2,
+    "run_rationale": "留学生都抢这类岗位，薪水通常是法定最低标准，对移民身份无帮助。"
   },
   {
     "name": "收银员",
@@ -1360,8 +1360,8 @@
     "salary": 6.1,
     "education": "初中及以下",
     "growth": "-4%",
-    "run_score": 3,
-    "run_rationale": "收银操作简单可学，但语言要求和薪资天花板低，仅适合移民初期过渡。"
+    "run_score": 2,
+    "run_rationale": "收银操作简单可学，但留学生都抢这类岗位，竞争惨烈。"
   },
   {
     "name": "厨师",
@@ -1372,7 +1372,7 @@
     "education": "初中及以下",
     "growth": "+1%",
     "run_score": 7,
-    "run_rationale": "中餐在全球各大城市均有市场，是少数语言壁垒极低且需求稳定的职业，自雇开店也是可行路径。"
+    "run_rationale": "少数语言壁垒极低且需求稳定的职业，自雇开店也是可行路径。"
   },
   {
     "name": "餐厅服务员",
@@ -1383,7 +1383,7 @@
     "education": "初中及以下",
     "growth": "+0%",
     "run_score": 4,
-    "run_rationale": "服务技能通用，语言是主要障碍但可先从华人餐厅起步，小费制国家收入往往高于国内。"
+    "run_rationale": "只能作为落地初期的过渡。因为本地人也能做，雇主很难为你证明“非你不可”来担保签证。"
   },
   {
     "name": "电商运营",
@@ -1393,7 +1393,7 @@
     "salary": 12.2,
     "education": "大专",
     "growth": "+7%",
-    "run_score": 3,
+    "run_score": 4,
     "run_rationale": "平台生态完全不同（淘宝/京东 vs Amazon/Shopify），核心技能几乎需要重建，但转型可行。"
   },
   {
@@ -1404,8 +1404,8 @@
     "salary": 15.2,
     "education": "高中中专",
     "growth": "+12%",
-    "run_score": 2,
-    "run_rationale": "完全依赖中国平台生态（抖音/淘宝直播），出国后技能几乎归零，受众和平台均不可带走。"
+    "run_score": 3,
+    "run_rationale": "完全依赖中国平台生态（抖音/淘宝直播），出国后受众和平台均不可带走，只能继续服务中文市场。"
   },
   {
     "name": "超市理货员",
@@ -1415,8 +1415,8 @@
     "salary": 6.1,
     "education": "初中及以下",
     "growth": "-1%",
-    "run_score": 4,
-    "run_rationale": "基础操作技能可迁移，语言要求较低，适合移民初期过渡，但发展路径有限。"
+    "run_score": 3,
+    "run_rationale": "语言要求低，适合移民初期过渡，收入起薪，很难攒钱。"
   },
   {
     "name": "酒店前台",
@@ -1448,7 +1448,7 @@
     "salary": 5.5,
     "education": "高中中专",
     "growth": "+3%",
-    "run_score": 6,
+    "run_score": 7,
     "run_rationale": "美容技术通用，亚裔社区需求稳定，美甲等技能在北美薪资可观，自雇机会多。"
   },
   {
@@ -1470,8 +1470,8 @@
     "salary": 4.3,
     "education": "初中及以下",
     "growth": "+5%",
-    "run_score": 4,
-    "run_rationale": "家务技能通用，au pair/家政工作签证渠道在部分国家存在，但长期发展路径有限。"
+    "run_score": 6,
+    "run_rationale": "家务门槛低，在海外华人圈不仅包吃住且起薪极高。"
   },
   {
     "name": "月嫂/育儿嫂",
@@ -1492,8 +1492,8 @@
     "salary": 6.7,
     "education": "高中中专",
     "growth": "+5%",
-    "run_score": 7,
-    "run_rationale": "NASM/ACE/ISSA等国际健身认证全球认可，健身行业高度国际化，工作语言壁垒相对较低。"
+    "run_score": 6,
+    "run_rationale": "健身行业高度国际化，但非常依赖沟通能力和社交直觉。在华人社区较易起步。"
   },
   {
     "name": "房产经纪人",
@@ -1525,7 +1525,7 @@
     "salary": 3.4,
     "education": "初中及以下",
     "growth": "+1%",
-    "run_score": 1,
+    "run_score": 2,
     "run_rationale": "谁都能干的基础工作，语言障碍影响较大，薪资和发展前景有限。"
   },
   {
@@ -1558,7 +1558,7 @@
     "salary": 9.5,
     "education": "初中及以下",
     "growth": "-9%",
-    "run_score": 3,
+    "run_score": 4,
     "run_rationale": "采矿技能可迁移（澳大利亚/加拿大资源行业），但劳动条件和安全标准差异大，需重新认证。"
   },
   {
@@ -1569,8 +1569,8 @@
     "salary": 12.3,
     "education": "高中中专",
     "growth": "-7%",
-    "run_score": 7,
-    "run_rationale": "全球石油行业通用技能，中东/北美/北非油田均有需求，专业技能稀缺，薪资可观。"
+    "run_score": 5,
+    "run_rationale": "全球石油行业通用技能，中东/北美/北非油田均有需求。薪资可观，但行业封闭且地域化，。"
   },
   {
     "name": "电力工程师",
@@ -1592,7 +1592,7 @@
     "education": "大专",
     "growth": "+2%",
     "run_score": 5,
-    "run_rationale": "高压电工技能有市场，但各国安全规范差异较大（IEC vs NFPA），需重新取得当地认证。"
+    "run_rationale": "高压电工技能有市场，但涉及国家基础设施，有时需要本地安全背调/执照。"
   },
   {
     "name": "新能源技术员",
