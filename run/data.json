@@ -29,7 +29,7 @@
     "salary": 19.6,
     "education": "本科",
     "growth": "+6%",
-    "run_score": 8,
+    "run_score": 9,
     "run_rationale": "数据库技术标准化程度高，大型IT企业必备，虽然岗位量不如开发，但极其稳定。"
   },
   {
@@ -425,7 +425,7 @@
     "salary": 7.7,
     "education": "本科",
     "growth": "+3%",
-    "run_score": 5,
+    "run_score": 4,
     "run_rationale": "体育训练方法论通用，但极度依赖本地人脉、社交和语言，不易拿工签。"
   },
   {
@@ -447,7 +447,7 @@
     "salary": 8.1,
     "education": "大专",
     "growth": "+7%",
-    "run_score": 9,
+    "run_score": 8,
     "run_rationale": "需要考当地执照（NCLEX、OSCE、ANMAC等），但相比医生容易很多。全球护士严重短缺，很多国家有专门针对护士的快速通道。只要过了语言关并考取当地注册护士，基本直接发永居。"
   },
   {
@@ -744,7 +744,7 @@
     "salary": 5.9,
     "education": "初中及以下",
     "growth": "-6%",
-    "run_score": 7,
+    "run_score": 8,
     "run_rationale": "手工和经验活，通用性较强。全球建筑业硬缺，不需执照，语言壁垒极低。"
   },
   {
@@ -876,7 +876,7 @@
     "salary": 3.2,
     "education": "初中及以下",
     "growth": "-5%",
-    "run_score": 7,
+    "run_score": 6,
     "run_rationale": "类似于农机手，在加拿大、新西兰等资源大国是支柱产业，收入高但环境艰苦。"
   },
   {
@@ -909,7 +909,7 @@
     "salary": 4.4,
     "education": "初中及以下",
     "growth": "-1%",
-    "run_score": 7,
+    "run_score": 8,
     "run_rationale": "黑马职业。澳大利亚/加拿大农业大省对农机操作员有需求。常年在偏远的移民加分区，且属于技术工种，不容易被替代，签证优先级高。"
   },
   {
@@ -1162,7 +1162,7 @@
     "salary": 8.6,
     "education": "高中中专",
     "growth": "-2%",
-    "run_score": 4,
+    "run_score": 3,
     "run_rationale": "大型车辆驾驶技能可迁移，但驾照体系、商用驾照、道路规则、语言、工签都卡得很死。"
   },
   {
@@ -1250,7 +1250,7 @@
     "salary": 7.8,
     "education": "大专",
     "growth": "+2%",
-    "run_score": 8,
+    "run_score": 9,
     "run_rationale": "摄影是视觉语言，无语言壁垒，技能和作品集全球通用，商业摄影全球有市场。"
   },
   {
@@ -1338,7 +1338,7 @@
     "salary": 8.7,
     "education": "本科",
     "growth": "+5%",
-    "run_score": 8,
+    "run_score": 9,
     "run_rationale": "3D建模/2D动画技能（Maya/Blender/AE）全球通用，国际动画产业（迪士尼/皮克斯/网飞）需求旺盛。"
   },
   {
@@ -1382,7 +1382,7 @@
     "salary": 3.4,
     "education": "初中及以下",
     "growth": "+0%",
-    "run_score": 4,
+    "run_score": 3,
     "run_rationale": "只能作为落地初期的过渡。因为本地人也能做，雇主很难为你证明“非你不可”来担保签证。"
   },
   {
@@ -1426,7 +1426,7 @@
     "salary": 4.0,
     "education": "大专",
     "growth": "-1%",
-    "run_score": 5,
+    "run_score": 4,
     "run_rationale": "酒店服务行业国际化程度高，英语流利者可在国际连锁酒店就业，酒店管理认证全球通用。"
   },
   {
@@ -1459,7 +1459,7 @@
     "salary": 4.9,
     "education": "初中及以下",
     "growth": "+2%",
-    "run_score": 7,
+    "run_score": 9,
     "run_rationale": "理发技术通用，自雇机会多，语言要求相对低，华人美发师在海外受欢迎度高。"
   },
   {
@@ -1492,8 +1492,8 @@
     "salary": 6.7,
     "education": "高中中专",
     "growth": "+5%",
-    "run_score": 6,
-    "run_rationale": "健身行业高度国际化，但非常依赖沟通能力和社交直觉。在华人社区较易起步。"
+    "run_score": 4,
+    "run_rationale": " 这不是一个纯技术活，而是一个“推销”和“激励”的工作。非常依赖沟通能力和社交直觉。在华人社区较易起步。"
   },
   {
     "name": "房产经纪人",
